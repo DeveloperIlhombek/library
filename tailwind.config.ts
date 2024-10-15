@@ -58,6 +58,9 @@ const config: Config = {
 					'5': 'hsl(var(--chart-5))',
 				},
 			},
+			animation: {
+				'spin-slow': 'spin 3s linear infinite',
+			},
 			fontFamily: {
 				roboto: ['var(--font-roboto)'],
 				'space-grotesk': ['var(--font-space-grotesk)'],

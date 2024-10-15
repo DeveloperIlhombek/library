@@ -1,36 +1,104 @@
+'use client'
 import { navlink } from '@/constanta'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import ModeToggle from '@/components/shared/mode-toggle'
+import Image from 'next/image'
+import { MdManageSearch } from 'react-icons/md'
+import { RoughNotation, RoughNotationGroup } from 'react-rough-notation'
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
+	const [isVisible, setIsVisible] = useState(false)
+	const newsRef = useRef<HTMLDivElement | null>(null)
+	const pathname = usePathname()
+
+	useEffect(() => {
+		const currentRef = newsRef.current
+		const observer = new IntersectionObserver(
+			entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						setIsVisible(true)
+					} else {
+						setIsVisible(false)
+					}
+				})
+			},
+			{
+				threshold: 0.5,
+			}
+		)
+
+		if (currentRef) {
+			observer.observe(currentRef)
+		}
+
+		return () => {
+			if (currentRef) {
+				observer.unobserve(currentRef)
+			}
+		}
+	}, [])
+
 	return (
-		<header className='sticky border-b border-white/15 bg-white/10 py-4 backdrop-blur-md backdrop-brightness-150 md:border-none md:backdrop-filter-none'>
+		<header
+			className='sticky border-b border-white/15 bg-white/10 py-4 backdrop-blur-md backdrop-brightness-150 md:border-none md:backdrop-filter-none'
+			ref={newsRef}
+		>
 			<div className='mx-8'>
 				<div className='flex justify-between border-white/15 p-2.5'>
 					<div>
-						<h1 className='size-10 w-fit text-4xl font-bold text-orange-500'>
-							Silk <span className='text-blue-500'>Road</span> Samarkand
-						</h1>
+						<Image
+							src={'/assets/logo2.svg'}
+							alt='logo'
+							width={200}
+							height={200}
+							className=''
+						/>
 					</div>
-					<nav className='flex gap-8 rounded-lg border border-white/10 bg-transparent p-2 shadow-[0px_0px_12px_#FFA500] transition'>
-						{navlink.map(item => (
-							<Link
-								key={item.route}
-								href={item.route}
-								className='text-xl hover:text-orange-500'
-							>
-								{item.label}
-							</Link>
-						))}
+					<nav className='flex gap-8 rounded-lg border border-white/10 bg-transparent p-2 shadow-[0px_0px_12px_#0959a9] transition'>
+						<RoughNotationGroup show={isVisible}>
+							{navlink.map(item => (
+								<Link
+									key={item.route}
+									href={item.route}
+									className='font-serif text-xl font-bold'
+								>
+									{pathname === item.route ? (
+										<RoughNotation
+											type='highlight'
+											show={isVisible}
+											color='#2d90f3'
+										>
+											{item.label}
+										</RoughNotation>
+									) : (
+										item.label
+									)}
+								</Link>
+							))}
+						</RoughNotationGroup>
 					</nav>
 					<div className='flex items-center gap-4'>
+						<Button
+							className='border-spacing-2 rounded-md border p-1 text-3xl shadow-[0px_0px_12px_#0959a9]'
+							variant={'ghost'}
+						>
+							<MdManageSearch />
+						</Button>
 						<ModeToggle />
-						<Button className='relative rounded-lg bg-gradient-to-b from-[#fdb329] to-[#f9ab1b] px-3 py-2 text-sm font-medium text-black shadow-[0px_0px_12px_#FFA500]'>
+						<Button
+							className='font-serif shadow-[0px_0px_12px_#0959a9]'
+							variant={'ghost'}
+						>
 							Til tanlash
 						</Button>
-						<Button className='relative rounded-lg bg-gradient-to-b from-[#fdb329] to-[#f9ab1b] px-3 py-2 text-sm font-medium text-black shadow-[0px_0px_12px_#FFA500]'>
+						<Button
+							className='font-serif shadow-[0px_0px_12px_#0959a9]'
+							variant={'ghost'}
+						>
 							Kirish
 						</Button>
 					</div>
