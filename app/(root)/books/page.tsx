@@ -10,7 +10,6 @@ import Link from 'next/link'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { GoSearch } from 'react-icons/go'
-import ComboboxFilter from './[bookId]/_components/combobox-filter'
 function Page() {
 	const [isVisible, setIsVisible] = useState(false)
 	const newsRef = useRef<HTMLDivElement | null>(null)
@@ -75,12 +74,6 @@ function Page() {
 						<Button type='button' className='rounded-l-none'>
 							<GoSearch />
 						</Button>
-					</div>
-					<div className='mt-6'>
-						<ComboboxFilter />
-					</div>
-					<div className='mt-6'>
-						<ComboboxFilter />
 					</div>
 				</div>
 			</div>
