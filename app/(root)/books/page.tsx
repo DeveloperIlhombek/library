@@ -7,7 +7,10 @@ import PaginationBook from './_components/pagination-book'
 import { RoughNotation, RoughNotationGroup } from 'react-rough-notation'
 import { GiBookshelf } from 'react-icons/gi'
 import Link from 'next/link'
-
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { GoSearch } from 'react-icons/go'
+import ComboboxFilter from './[bookId]/_components/combobox-filter'
 function Page() {
 	const [isVisible, setIsVisible] = useState(false)
 	const newsRef = useRef<HTMLDivElement | null>(null)
@@ -40,7 +43,7 @@ function Page() {
 	}, [])
 
 	return (
-		<div ref={newsRef}>
+		<div ref={newsRef} className='mt-24'>
 			<BreadcrumbBook />
 			<div className='flex items-center justify-center gap-4'>
 				<GiBookshelf className='text-4xl' />
@@ -52,18 +55,34 @@ function Page() {
 					</RoughNotationGroup>
 				</h1>
 			</div>
-			<div className='container mx-auto grid grid-cols-5 gap-3'>
-				{books.map(book => (
-					<Link href={`/books/${book.id}`} key={book.id}>
-						<Card
-							image={book.img_url}
-							color='#2d90f3'
-							data={book.date}
-							description={book.decription}
-							title={book.title}
-						/>
-					</Link>
-				))}
+			<div className='container grid h-screen grid-cols-7 gap-2'>
+				<div className='container col-span-5 mx-auto grid grid-cols-4 gap-3'>
+					{books.map(book => (
+						<Link href={`/books/${book.id}`} key={book.id}>
+							<Card
+								image={book.img_url}
+								color='#2d90f3'
+								data={book.date}
+								description={book.decription}
+								title={book.title}
+							/>
+						</Link>
+					))}
+				</div>
+				<div className='col-span-2'>
+					<div className='flex items-center justify-center '>
+						<Input className='rounded-r-none ring-1' />
+						<Button type='button' className='rounded-l-none'>
+							<GoSearch />
+						</Button>
+					</div>
+					<div className='mt-6'>
+						<ComboboxFilter />
+					</div>
+					<div className='mt-6'>
+						<ComboboxFilter />
+					</div>
+				</div>
 			</div>
 			<PaginationBook />
 		</div>

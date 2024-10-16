@@ -74,20 +74,6 @@ export const books = [
 		img_url: '/books/book8.jpg',
 		id: '1222',
 	},
-	{
-		title: 'Farhod va Shirin',
-		decription: 'Alisher Navoiy',
-		date: '1483-yil',
-		img_url: '/books/book9.jpg',
-		id: '1223',
-	},
-	{
-		title: 'Farhod va Shirin',
-		decription: 'Alisher Navoiy',
-		date: '1483-yil',
-		img_url: '/books/book10.jpg',
-		id: '1224',
-	},
 ]
 
 export const news = [

@@ -13,7 +13,6 @@ function Navbar() {
 	const [isVisible, setIsVisible] = useState(false)
 	const newsRef = useRef<HTMLDivElement | null>(null)
 	const pathname = usePathname()
-
 	useEffect(() => {
 		const currentRef = newsRef.current
 		const observer = new IntersectionObserver(
@@ -27,7 +26,7 @@ function Navbar() {
 				})
 			},
 			{
-				threshold: 0.5,
+				threshold: 1,
 			}
 		)
 
@@ -44,19 +43,23 @@ function Navbar() {
 
 	return (
 		<header
-			className='sticky border-b border-white/15 bg-white/10 py-4 backdrop-blur-md backdrop-brightness-150 md:border-none md:backdrop-filter-none'
+			className={
+				'fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-white/10 backdrop-blur-md backdrop-brightness-150'
+			}
 			ref={newsRef}
 		>
 			<div className='mx-8'>
 				<div className='flex justify-between border-white/15 p-2.5'>
 					<div>
-						<Image
-							src={'/assets/logo2.svg'}
-							alt='logo'
-							width={200}
-							height={200}
-							className=''
-						/>
+						<Link href={'/'}>
+							<Image
+								src={'/assets/logo2.svg'}
+								alt='logo'
+								width={200}
+								height={200}
+								priority
+							/>
+						</Link>
 					</div>
 					<nav className='flex gap-8 rounded-lg border border-white/10 bg-transparent p-2 shadow-[0px_0px_12px_#0959a9] transition'>
 						<RoughNotationGroup show={isVisible}>
