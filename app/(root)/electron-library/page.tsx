@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Page() {
-	return <div>Page electron-library</div>
+	return <div className='mt-24'>Page electron-library</div>
 }
 
 export default Page

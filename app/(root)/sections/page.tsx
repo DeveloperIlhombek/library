@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Page() {
-	return <div>Page Section </div>
+	return <div className='mt-24'>Page Section </div>
 }
 
 export default Page
