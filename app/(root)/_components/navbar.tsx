@@ -53,7 +53,7 @@ function Navbar() {
 					<div>
 						<Link href={'/'}>
 							<Image
-								src={'/assets/logo2.svg'}
+								src={'/assets/tourism-logo.png'}
 								alt='logo'
 								width={200}
 								height={200}
