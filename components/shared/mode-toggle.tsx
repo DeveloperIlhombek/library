@@ -18,6 +18,7 @@ function ModeToggle() {
 			variant={'ghost'}
 			onClick={() => setTheme('light')}
 			className='shadow-[0px_0px_12px_#0959a9]'
+			aria-label='light'
 		>
 			<SunIcon />
 		</Button>
@@ -27,6 +28,7 @@ function ModeToggle() {
 			onClick={() => setTheme('dark')}
 			variant={'ghost'}
 			className='shadow-[0px_0px_12px_#0959a9]'
+			aria-label='dark'
 		>
 			<MoonIcon />
 		</Button>

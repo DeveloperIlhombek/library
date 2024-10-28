@@ -88,6 +88,7 @@ function Navbar() {
 						<Button
 							className='border-spacing-2 rounded-md border p-1 text-3xl shadow-[0px_0px_12px_#0959a9]'
 							variant={'ghost'}
+							aria-label='search'
 						>
 							<MdManageSearch />
 						</Button>
