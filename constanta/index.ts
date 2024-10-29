@@ -85,3 +85,55 @@ export const news = [
 	{ news_image: '/images/image6.avif', title: 'Title1', date: '14.10.2024' },
 	{ news_image: '/images/image7.avif', title: 'Title1', date: '14.10.2024' },
 ]
+
+export const sections = [
+	{
+		src: '/images/image1.avif',
+		title: 'markaz1',
+		description:
+			'Axborot–kutubxona resurslarini butlash, kataloglashtirish va tizimlashtirish bo‘limi',
+		href: '/',
+	},
+	{
+		src: '/images/image1.avif',
+		title: 'markaz1',
+		description: 'Ilmiy–uslubiy va axborot-ma’lumot (davriy nashrlar) bo‘limi',
+		href: '/',
+	},
+	{
+		src: '/images/image1.avif',
+		title: 'markaz1',
+		description: 'Axborot-kutubxona resurslari bilan xizmat ko‘rsatish bo‘limi',
+		href: '/',
+	},
+	{
+		src: '/images/image1.avif',
+		title: 'markaz1',
+		description: 'Elektron axborot resurslari bo‘limi',
+		href: '/',
+	},
+	{
+		src: '/images/image1.avif',
+		title: 'markaz1',
+		description: 'Xorijiy axborot-kutubxona resurslari bilan ishlash bo‘limi',
+		href: '/',
+	},
+]
+
+export const eBooks = [
+	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+]
+export const centerNav = [
+	{ src: '/images/image5.avif', title: 'Markaz haqida', href: '/' },
+	{ src: '/images/image5.avif', title: 'Markaz tarixi', href: '/' },
+	{
+		src: '/images/image5.avif',
+		title: 'ARM dan foydalanish qoidalari',
+		href: '/',
+	},
+]

@@ -1,53 +1,23 @@
 'use client'
-import { navlink } from '@/constanta'
+import { centerNav, eBooks, sections } from '@/constanta'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import ModeToggle from '@/components/shared/mode-toggle'
 import Image from 'next/image'
 import { MdManageSearch } from 'react-icons/md'
-import { RoughNotation, RoughNotationGroup } from 'react-rough-notation'
-import { usePathname } from 'next/navigation'
+import {
+	HoveredLink,
+	Menu,
+	MenuItem,
+	ProductItem,
+} from '@/components/ui/navbar-menu' // Import Menu and MenuItem
+import { useState } from 'react'
 
 function Navbar() {
-	const [isVisible, setIsVisible] = useState(false)
-	const newsRef = useRef<HTMLDivElement | null>(null)
-	const pathname = usePathname()
-	useEffect(() => {
-		const currentRef = newsRef.current
-		const observer = new IntersectionObserver(
-			entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						setIsVisible(true)
-					} else {
-						setIsVisible(false)
-					}
-				})
-			},
-			{
-				threshold: 1,
-			}
-		)
-
-		if (currentRef) {
-			observer.observe(currentRef)
-		}
-
-		return () => {
-			if (currentRef) {
-				observer.unobserve(currentRef)
-			}
-		}
-	}, [])
+	const [active, setActive] = useState<string | null>(null) // State to track active item
 
 	return (
-		<header
-			className={
-				'fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-white/10 backdrop-blur-md backdrop-brightness-150'
-			}
-			ref={newsRef}
-		>
+		<header className='fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-white/10 backdrop-blur-md backdrop-brightness-150'>
 			<div className='mx-8'>
 				<div className='flex justify-between border-white/15 p-2.5'>
 					<div>
@@ -61,29 +31,56 @@ function Navbar() {
 							/>
 						</Link>
 					</div>
-					<nav className='flex gap-8 rounded-lg border border-white/10 bg-transparent p-2 shadow-[0px_0px_12px_#0959a9] transition'>
-						<RoughNotationGroup show={isVisible}>
-							{navlink.map(item => (
-								<Link
-									key={item.route}
-									href={item.route}
-									className='font-serif text-xl font-bold'
-								>
-									{pathname === item.route ? (
-										<RoughNotation
-											type='highlight'
-											show={isVisible}
-											color='#2d90f3'
-										>
-											{item.label}
-										</RoughNotation>
-									) : (
-										item.label
-									)}
-								</Link>
-							))}
-						</RoughNotationGroup>
-					</nav>
+
+					{/* Use Menu with navlink items */}
+					<Menu setActive={setActive}>
+						<MenuItem setActive={setActive} active={active} item='Bosh sahifa'>
+							<div className='flex flex-col gap-3'>
+								<HoveredLink href='/'>Link1</HoveredLink>
+								<HoveredLink href='/'>Link2</HoveredLink>
+							</div>
+						</MenuItem>
+						<MenuItem setActive={setActive} active={active} item='Markaz'>
+							<div className='flex gap-3'>
+								{centerNav.map(item => (
+									<ProductItem
+										key={item.href}
+										href={item.href}
+										src={item.src}
+										title={item.title}
+									/>
+								))}
+							</div>
+						</MenuItem>
+						<MenuItem setActive={setActive} active={active} item="Bo'limlar">
+							<div className='flex gap-3'>
+								{sections.map(item => (
+									<ProductItem
+										key={item.title}
+										title={item.title}
+										href={item.href}
+										src={item.src}
+									/>
+								))}
+							</div>
+						</MenuItem>
+						<MenuItem
+							setActive={setActive}
+							active={active}
+							item='Elektron kitoblar'
+						>
+							<div className='flex gap-3'>
+								{eBooks.map(item => (
+									<ProductItem
+										key={item.title}
+										title={item.title}
+										href={item.href}
+										src={item.src}
+									/>
+								))}
+							</div>
+						</MenuItem>
+					</Menu>
 					<div className='flex items-center gap-4'>
 						<Button
 							className='border-spacing-2 rounded-md border p-1 text-3xl shadow-[0px_0px_12px_#0959a9]'

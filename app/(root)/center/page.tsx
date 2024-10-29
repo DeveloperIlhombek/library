@@ -1,7 +1,9 @@
-import React from 'react'
+import Test from '@/components/parallax/center-parallex'
 
-function Page() {
-	return <div className='mt-24'>Page center</div>
+export default function Page() {
+	return (
+		<main className='flex min-h-[300vh] flex-col items-center justify-between p-24'>
+			<Test />
+		</main>
+	)
 }
-
-export default Page

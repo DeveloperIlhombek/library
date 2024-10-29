@@ -4,13 +4,12 @@ import Categories from './_components/categories'
 import Books from './_components/books'
 import Posts from './_components/posts'
 import { Separator } from '@/components/ui/separator'
-import { HeroParallax } from './_components/hero'
-import { products } from './product-hero'
+import Hero from './_components/hero'
 
 function Page() {
 	return (
 		<>
-			<HeroParallax products={products} />
+			<Hero />
 			<div className='container'>
 				<News />
 				<Separator />
