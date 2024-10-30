@@ -1,5 +1,5 @@
 'use client'
-import { centerNav, eBooks, sections } from '@/constanta'
+import { sections } from '@/constanta'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import ModeToggle from '@/components/shared/mode-toggle'
@@ -9,9 +9,11 @@ import {
 	HoveredLink,
 	Menu,
 	MenuItem,
-	ProductItem,
+	ProductforSections,
 } from '@/components/ui/navbar-menu' // Import Menu and MenuItem
 import { useState } from 'react'
+import { ProductItemCenter } from '@/components/ui/product-item-center'
+import { ProductItemEbook } from '@/components/ui/productitem-ebook'
 
 function Navbar() {
 	const [active, setActive] = useState<string | null>(null) // State to track active item
@@ -41,21 +43,12 @@ function Navbar() {
 							</div>
 						</MenuItem>
 						<MenuItem setActive={setActive} active={active} item='Markaz'>
-							<div className='flex gap-3'>
-								{centerNav.map(item => (
-									<ProductItem
-										key={item.href}
-										href={item.href}
-										src={item.src}
-										title={item.title}
-									/>
-								))}
-							</div>
+							<ProductItemCenter />
 						</MenuItem>
 						<MenuItem setActive={setActive} active={active} item="Bo'limlar">
-							<div className='flex gap-3'>
+							<div className='grid grid-cols-5 gap-3'>
 								{sections.map(item => (
-									<ProductItem
+									<ProductforSections
 										key={item.title}
 										title={item.title}
 										href={item.href}
@@ -69,16 +62,7 @@ function Navbar() {
 							active={active}
 							item='Elektron kitoblar'
 						>
-							<div className='flex gap-3'>
-								{eBooks.map(item => (
-									<ProductItem
-										key={item.title}
-										title={item.title}
-										href={item.href}
-										src={item.src}
-									/>
-								))}
-							</div>
+							<ProductItemEbook />
 						</MenuItem>
 					</Menu>
 					<div className='flex items-center gap-4'>

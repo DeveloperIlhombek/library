@@ -89,47 +89,46 @@ export const news = [
 export const sections = [
 	{
 		src: '/images/image1.avif',
-		title: 'markaz1',
-		description:
+		title: 'Ilmiy–uslubiy va axborot-ma’lumot (davriy nashrlar) bo‘limi',
+		href: '/',
+	},
+	{
+		src: '/images/image1.avif',
+		title:
 			'Axborot–kutubxona resurslarini butlash, kataloglashtirish va tizimlashtirish bo‘limi',
 		href: '/',
 	},
 	{
 		src: '/images/image1.avif',
-		title: 'markaz1',
-		description: 'Ilmiy–uslubiy va axborot-ma’lumot (davriy nashrlar) bo‘limi',
+		title: 'Axborot-kutubxona resurslari bilan xizmat ko‘rsatish bo‘limi',
 		href: '/',
 	},
 	{
 		src: '/images/image1.avif',
-		title: 'markaz1',
-		description: 'Axborot-kutubxona resurslari bilan xizmat ko‘rsatish bo‘limi',
+		title: 'Elektron axborot resurslari bo‘limi',
 		href: '/',
 	},
 	{
 		src: '/images/image1.avif',
-		title: 'markaz1',
-		description: 'Elektron axborot resurslari bo‘limi',
-		href: '/',
-	},
-	{
-		src: '/images/image1.avif',
-		title: 'markaz1',
-		description: 'Xorijiy axborot-kutubxona resurslari bilan ishlash bo‘limi',
+		title: 'Xorijiy axborot-kutubxona resurslari bilan ishlash bo‘limi',
 		href: '/',
 	},
 ]
 
 export const eBooks = [
-	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
-	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
-	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
-	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
-	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
-	{ src: '/images/image3.avif', title: 'e book 1', href: '/' },
+	{ src: '/images/image3.avif', title: 'Adabiyotlar', href: '/' },
+	{ src: '/images/image3.avif', title: 'Maqolalar', href: '/' },
+	{ src: '/images/image3.avif', title: 'Dissertatsiyalar', href: '/' },
+	{ src: '/images/image3.avif', title: 'Monografiyalar', href: '/' },
+	{ src: '/images/image3.avif', title: "Qo'lyozmalar", href: '/' },
+	{
+		src: '/images/image3.avif',
+		title: "Xalqaro Ilmiy ma'lumotlar manbai",
+		href: '/',
+	},
 ]
 export const centerNav = [
-	{ src: '/images/image5.avif', title: 'Markaz haqida', href: '/' },
+	{ src: '/navbar/about.png', title: '', href: '/' },
 	{ src: '/images/image5.avif', title: 'Markaz tarixi', href: '/' },
 	{
 		src: '/images/image5.avif',

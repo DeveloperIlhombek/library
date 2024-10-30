@@ -71,25 +71,25 @@ export const Menu = ({
 	return (
 		<nav
 			onMouseLeave={() => setActive(null)} // resets the state
-			className='relative flex justify-center space-x-4 rounded-full border border-transparent bg-white px-8 py-6 shadow-input dark:border-white/[0.2] dark:bg-black '
+			className='relative flex justify-center space-x-4 rounded-full border border-transparent px-8 py-4 shadow-[0px_0px_12px_#0959a9] dark:border-white/[0.5] '
 		>
 			{children}
 		</nav>
 	)
 }
 
-export const ProductItem = ({ title, href, src }: IBookItems) => {
+export const ProductforSections = ({ title, href, src }: IBookItems) => {
 	return (
 		<Link href={href} className='flex flex-col gap-3 space-x-2'>
 			<Image
 				src={src}
-				width={140}
+				width={180}
 				height={70}
 				alt={title}
 				className='shrink-0 rounded-md shadow-2xl'
 				priority
 			/>
-			<h4 className='mb-1 w-20 text-xl text-black dark:text-white'>{title}</h4>
+			<p className='mb-1 w-40 text-black dark:text-white'>{title}</p>
 		</Link>
 	)
 }
