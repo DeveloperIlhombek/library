@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -25,14 +25,57 @@ export const MenuItem = ({
 	item: string
 	children?: React.ReactNode
 }) => {
+	const itemRef = useRef<HTMLParagraphElement>(null)
+	const [lineWidth, setLineWidth] = useState(0)
+	const [hovered, setHovered] = useState(false)
+	useEffect(() => {
+		if (itemRef.current) {
+			setLineWidth(itemRef.current.offsetWidth)
+		}
+	}, [item])
+	const handleMouseEnter = () => {
+		setHovered(true)
+		setActive(item)
+	}
+
+	const handleMouseLeave = () => {
+		setHovered(false)
+	}
 	return (
-		<div onMouseEnter={() => setActive(item)} className='relative '>
-			<motion.p
-				transition={{ duration: 0.3 }}
-				className='cursor-pointer text-black hover:opacity-90 dark:text-white'
-			>
-				{item}
-			</motion.p>
+		<div
+			onMouseEnter={() => handleMouseEnter()}
+			onMouseLeave={handleMouseLeave}
+			className='relative'
+		>
+			<div className='flex flex-col items-center justify-center gap-1'>
+				<motion.p
+					ref={itemRef}
+					transition={{ duration: 0.3 }}
+					className='cursor-pointer font-bold hover:text-blue-500 hover:opacity-90'
+				>
+					{item}
+				</motion.p>
+				<motion.span
+					animate={{
+						width: hovered ? `${lineWidth}px` : '0px',
+						boxShadow: hovered ? '3px 2px 10px rgba(0, 0, 256, 0.5)' : 'none',
+					}}
+					transition={{
+						duration: 0.5,
+						ease: 'easeInOut',
+					}}
+				>
+					<hr
+						className='h-[2px] border border-blue-500 bg-blue-500'
+						style={{
+							width: hovered ? `${lineWidth}px` : '0px',
+							boxShadow: hovered
+								? '30px 2px 20px  rgba(0, 0, 256, 0.5)'
+								: 'none',
+						}}
+					></hr>
+				</motion.span>
+			</div>
 			{active !== null && (
 				<motion.div
 					initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -43,13 +86,10 @@ export const MenuItem = ({
 						<div className='absolute left-1/2 top-[calc(100%_+_1.2rem)] -translate-x-1/2 pt-4'>
 							<motion.div
 								transition={transition}
-								layoutId='active' // layoutId ensures smooth animation
+								layoutId='active'
 								className='overflow-hidden rounded-2xl border border-black/[0.2] bg-white shadow-xl backdrop-blur-sm dark:border-white/[0.2] dark:bg-black'
 							>
-								<motion.div
-									layout // layout ensures smooth animation
-									className='h-full w-max p-4'
-								>
+								<motion.div layout className='h-full w-max p-4'>
 									{children}
 								</motion.div>
 							</motion.div>
@@ -70,7 +110,7 @@ export const Menu = ({
 }) => {
 	return (
 		<nav
-			onMouseLeave={() => setActive(null)} // resets the state
+			onMouseLeave={() => setActive(null)}
 			className='relative flex justify-center space-x-4 rounded-full border border-transparent px-8 py-4 shadow-[0px_0px_12px_#0959a9] dark:border-white/[0.5] '
 		>
 			{children}
@@ -80,13 +120,16 @@ export const Menu = ({
 
 export const ProductforSections = ({ title, href, src }: IBookItems) => {
 	return (
-		<Link href={href} className='flex flex-col gap-3 space-x-2'>
+		<Link
+			href={href}
+			className='flex flex-col gap-3 space-x-2 rounded-b-xl rounded-t-lg border border-blue-500 ring-1 hover:bg-blue-300 hover:dark:bg-slate-400'
+		>
 			<Image
 				src={src}
 				width={180}
 				height={70}
 				alt={title}
-				className='shrink-0 rounded-md shadow-2xl'
+				className='shrink-0 rounded-md shadow-2xl '
 				priority
 			/>
 			<p className='mb-1 w-40 text-black dark:text-white'>{title}</p>
