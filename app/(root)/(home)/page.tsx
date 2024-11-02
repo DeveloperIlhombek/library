@@ -11,6 +11,7 @@ function Page() {
 		<>
 			<Hero />
 			<div className='container'>
+				<Separator className='my-4' />
 				<News />
 				<Separator />
 				<Categories />

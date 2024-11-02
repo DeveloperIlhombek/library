@@ -47,7 +47,7 @@ export const MenuItem = ({
 			onMouseLeave={handleMouseLeave}
 			className='relative'
 		>
-			<div className='flex flex-col items-center justify-center gap-1'>
+			<div className='flex flex-col items-center justify-center gap-1 '>
 				<motion.p
 					ref={itemRef}
 					transition={{ duration: 0.3 }}
@@ -111,7 +111,7 @@ export const Menu = ({
 	return (
 		<nav
 			onMouseLeave={() => setActive(null)}
-			className='relative flex justify-center space-x-4 rounded-full border border-transparent px-8 py-4 shadow-[0px_0px_12px_#0959a9] dark:border-white/[0.5] '
+			className='relative flex justify-center space-x-4 rounded-full border border-transparent px-8 py-4 shadow-[0px_0px_12px_#0959a9] dark:border-white/[0.5]  '
 		>
 			{children}
 		</nav>

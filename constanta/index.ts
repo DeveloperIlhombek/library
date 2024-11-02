@@ -77,13 +77,13 @@ export const books = [
 ]
 
 export const news = [
-	{ news_image: '/images/image1.avif', title: 'Title1', date: '14.10.2024' },
-	{ news_image: '/images/image2.avif', title: 'Title1', date: '14.10.2024' },
-	{ news_image: '/images/image3.avif', title: 'Title1', date: '14.10.2024' },
-	{ news_image: '/images/image4.avif', title: 'Title1', date: '14.10.2024' },
-	{ news_image: '/images/image5.avif', title: 'Title1', date: '14.10.2024' },
-	{ news_image: '/images/image6.avif', title: 'Title1', date: '14.10.2024' },
-	{ news_image: '/images/image7.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image1.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image2.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image3.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image4.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image5.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image6.avif', title: 'Title1', date: '14.10.2024' },
+	{ previewImage: '/images/image7.avif', title: 'Title1', date: '14.10.2024' },
 ]
 
 export const sections = [
