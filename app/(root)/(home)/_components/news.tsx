@@ -52,7 +52,7 @@ function News() {
 						'h-20 bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-center font-serif text-5xl font-bold text-transparent transition-transform duration-1000 ease-in-out',
 						isVisible
 							? 'translate-x-0 translate-y-5'
-							: '-translate-x-80 -translate-y-10'
+							: '-translate-x-80 -translate-y-20'
 					)}
 				>
 					Yangiliklar
