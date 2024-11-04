@@ -77,13 +77,58 @@ export const books = [
 ]
 
 export const news = [
-	{ previewImage: '/images/image1.avif', title: 'Title1', date: '14.10.2024' },
-	{ previewImage: '/images/image2.avif', title: 'Title1', date: '14.10.2024' },
-	{ previewImage: '/images/image3.avif', title: 'Title1', date: '14.10.2024' },
-	{ previewImage: '/images/image4.avif', title: 'Title1', date: '14.10.2024' },
-	{ previewImage: '/images/image5.avif', title: 'Title1', date: '14.10.2024' },
-	{ previewImage: '/images/image6.avif', title: 'Title1', date: '14.10.2024' },
-	{ previewImage: '/images/image7.avif', title: 'Title1', date: '14.10.2024' },
+	{
+		previewImage: '/images/image1.avif',
+		title:
+			"Yangiliklar bo'limi uchun sarlavha1 sarlavha uzunligi card dan katta",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image2.avif',
+		title:
+			"Yangiliklar bo'limi uchun sarlavha3 sarlavha uzunligi card dan katta",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image3.avif',
+		title:
+			"Yangiliklar bo'limi uchun sarlavha4 sarlavha uzunligi card dan katta",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image4.avif',
+		title:
+			"Yangiliklar bo'limi uchun sarlavha5 sarlavha uzunligi card dan katta",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image5.avif',
+		title: "Yangiliklar bo'limi uchun sarlavha7 ...",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image6.avif',
+		title: "Yangiliklar bo'limi uchun sarlavha6 ...",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image7.avif',
+		title: "Yangiliklar bo'limi uchun sarlavha8 ...",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
+	{
+		previewImage: '/images/image3.avif',
+		title: "Yangiliklar bo'limi uchun sarlavha4 ...",
+		date: '14.10.2024',
+		desription: 'short discription for news',
+	},
 ]
 
 export const sections = [

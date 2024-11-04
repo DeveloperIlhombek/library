@@ -25,6 +25,10 @@ const config: Config = {
 			zIndex: {
 				'-1': '-1',
 			},
+			aspectRatio: {
+				'4/3': '4 / 3',
+				'4/6': '4/6',
+			},
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',

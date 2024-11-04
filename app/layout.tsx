@@ -3,7 +3,6 @@ import './globals.css'
 import { ChildProps } from '@/types'
 import { Roboto, Space_Grotesk as SpaceGrotesk } from 'next/font/google'
 import { ThemeProvider } from '@/components/provider/theme-provider'
-import { Providers } from './providers'
 const roboto = Roboto({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['100', '300', '400', '500', '700', '900'],
@@ -27,16 +26,14 @@ function RootLayout({ children }: ChildProps) {
 			<body
 				className={`${roboto.variable} ${spaceGrotesk.variable} overflow-x-hidden antialiased`}
 			>
-				<Providers>
-					<ThemeProvider
-						attribute='class'
-						defaultTheme='system'
-						enableSystem
-						disableTransitionOnChange
-					>
-						{children}
-					</ThemeProvider>
-				</Providers>
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	)

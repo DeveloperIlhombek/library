@@ -44,7 +44,7 @@ function News() {
 				<IoNewspaperOutline
 					className={cn(
 						'h-20 text-5xl text-blue-500 transition-transform duration-1000 ease-in-out',
-						isVisible ? 'translate-y-0' : 'translate-y-20'
+						isVisible ? 'translate-y-0' : '-translate-y-20'
 					)}
 				/>
 				<h1
