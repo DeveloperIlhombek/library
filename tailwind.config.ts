@@ -25,6 +25,9 @@ const config: Config = {
 			zIndex: {
 				'-1': '-1',
 			},
+			rotate: {
+				'27': '27deg',
+			},
 			aspectRatio: {
 				'4/3': '4 / 3',
 				'4/6': '4/6',

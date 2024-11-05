@@ -1,7 +1,7 @@
 'use client'
-import { BackgroundBeamsWithCollision } from '@/components/shared/category-card'
+import CategoryCard from '@/components/ui/category-card'
+import { categories } from '@/constanta'
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { TbCategoryFilled } from 'react-icons/tb'
 
@@ -55,46 +55,18 @@ function Categories() {
 						Kategoriyalar
 					</h1>
 				</div>
-				<BackgroundBeamsWithCollision>
-					<div className='mt-4 flex items-center justify-between' ref={newsRef}>
-						<div className=' '>
-							<Image
-								src={'/category/article-category.svg'}
-								alt='book'
-								width={200}
-								height={200}
-								className='mx-auto'
-							/>
-						</div>
-						<div className=' '>
-							<Image
-								src={'/category/monolog.svg'}
-								alt='book'
-								width={200}
-								height={200}
-								className='mx-auto'
-							/>
-						</div>
-						<div className=''>
-							<Image
-								src={'/category/science-category.svg'}
-								alt='book'
-								width={200}
-								height={200}
-								className='mx-auto'
-							/>
-						</div>
-						<div className='  '>
-							<Image
-								src={'/category/book-category.svg'}
-								alt='book'
-								width={200}
-								height={200}
-								className='mx-auto'
-							/>
-						</div>
-					</div>
-				</BackgroundBeamsWithCollision>
+				<div
+					className='mx-2 mt-4 flex items-center justify-between gap-4'
+					ref={newsRef}
+				>
+					{categories.map(item => (
+						<CategoryCard
+							image={item.image}
+							title={item.title}
+							key={item.title}
+						/>
+					))}
+				</div>
 			</div>
 		</>
 	)

@@ -181,3 +181,11 @@ export const centerNav = [
 		href: '/',
 	},
 ]
+
+export const categories = [
+	{ title: 'Monologlar', image: '/category/bookcategory.svg' },
+	{ title: 'Dissertatsiyalar', image: '/category/bookcategory.svg' },
+	{ title: 'Adabiyotlar', image: '/category/bookcategory.svg' },
+	{ title: 'Maqolalar', image: '/category/bookcategory.svg' },
+	{ title: "Qo'lyozmalar", image: '/category/bookcategory.svg' },
+]
