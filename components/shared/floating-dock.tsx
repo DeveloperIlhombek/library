@@ -1,48 +1,48 @@
 'use client'
 import React from 'react'
 import { FloatingDock } from '@/components/ui/floating-dock'
-import {
-	IconBrandX,
-	IconExchange,
-	IconNewSection,
-	IconTerminal2,
-} from '@tabler/icons-react'
+import { FaTelegram, FaInstagramSquare } from 'react-icons/fa'
+import { IoLogoYoutube, IoIosGlobe } from 'react-icons/io'
 
 export function FloatingDockDemo() {
 	const links = [
 		{
-			title: 'Products',
+			title: 'Telegram',
 			icon: (
-				<IconTerminal2 className='size-full text-neutral-500 dark:text-neutral-300' />
+				<FaTelegram className='size-full text-neutral-500 dark:text-neutral-300' />
 			),
+			color: 'bg-blue-500',
 			href: '#',
 		},
 		{
-			title: 'Components',
+			title: 'Youtube',
 			icon: (
-				<IconNewSection className='size-full text-neutral-500 dark:text-neutral-300' />
+				<IoLogoYoutube className='size-full text-neutral-500 dark:text-neutral-300' />
 			),
 			href: '#',
-		},
-
-		{
-			title: 'Changelog',
-			icon: (
-				<IconExchange className='size-full text-neutral-500 dark:text-neutral-300' />
-			),
-			href: '#',
+			color: 'bg-red-500',
 		},
 
 		{
-			title: 'Twitter',
+			title: 'Instagram',
 			icon: (
-				<IconBrandX className='size-full text-neutral-500 dark:text-neutral-300' />
+				<FaInstagramSquare className='size-full text-neutral-500 dark:text-neutral-300' />
 			),
 			href: '#',
+			color: 'bg-pink-500',
+		},
+
+		{
+			title: 'web-site',
+			icon: (
+				<IoIosGlobe className='size-full text-neutral-500 dark:text-neutral-300' />
+			),
+			href: '#',
+			color: 'bg-sky-500',
 		},
 	]
 	return (
-		<div className='flex h-[20vh] w-full  items-center justify-evenly'>
+		<div className='flex h-[15vh] w-full  items-center justify-evenly '>
 			<FloatingDock mobileClassName='translate-y-20' items={links} />
 		</div>
 	)
