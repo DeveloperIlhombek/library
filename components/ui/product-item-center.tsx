@@ -7,7 +7,7 @@ export const ProductItemCenter = () => {
 	return (
 		<div className='flex items-center justify-center gap-4 '>
 			<Link
-				href={'/'}
+				href={'/center-about'}
 				className='flex h-52 w-44  flex-col items-center justify-center gap-2 space-y-1 rounded-md border ring-2 hover:bg-blue-200 hover:dark:bg-slate-800'
 			>
 				<div className='size-36'>
@@ -16,7 +16,7 @@ export const ProductItemCenter = () => {
 				<p className='mb-1 text-center'>Markaz haqida</p>
 			</Link>
 			<Link
-				href={'/'}
+				href={'/center-history'}
 				className='flex h-52 w-44  flex-col items-center justify-center gap-2 space-y-1 rounded-md border text-center ring-2 hover:bg-blue-200 hover:dark:bg-slate-800'
 			>
 				<div className='size-36'>
@@ -25,7 +25,7 @@ export const ProductItemCenter = () => {
 				<p className='mb-1 text-center'>Markazning tarixi</p>
 			</Link>
 			<Link
-				href={'/'}
+				href={'/arm-terms'}
 				className='flex h-52 w-44 flex-col items-center justify-center gap-2 space-y-1 rounded-md border ring-2 hover:bg-blue-200 hover:dark:bg-slate-600  '
 			>
 				<div className='size-36'>

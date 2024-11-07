@@ -135,28 +135,28 @@ export const sections = [
 	{
 		src: '/images/image1.avif',
 		title: 'Ilmiy–uslubiy va axborot-ma’lumot (davriy nashrlar) bo‘limi',
-		href: '/',
+		href: '/publishing_deportment',
 	},
 	{
 		src: '/images/image1.avif',
 		title:
 			'Axborot–kutubxona resurslarini butlash, kataloglashtirish va tizimlashtirish bo‘limi',
-		href: '/',
+		href: '/gathering-resrces',
 	},
 	{
 		src: '/images/image1.avif',
 		title: 'Axborot-kutubxona resurslari bilan xizmat ko‘rsatish bo‘limi',
-		href: '/',
+		href: '/library-resources',
 	},
 	{
 		src: '/images/image1.avif',
 		title: 'Elektron axborot resurslari bo‘limi',
-		href: '/',
+		href: '/electronic-information',
 	},
 	{
 		src: '/images/image1.avif',
 		title: 'Xorijiy axborot-kutubxona resurslari bilan ishlash bo‘limi',
-		href: '/',
+		href: '/foreign-library',
 	},
 ]
 
