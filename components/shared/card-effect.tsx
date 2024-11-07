@@ -41,17 +41,17 @@ const Card: React.FC<CardProps> = ({
 	return (
 		<div
 			ref={cardRef}
-			className='group relative flex h-96 w-full max-w-[300px] cursor-pointer flex-col items-center justify-between overflow-hidden rounded-2xl border border-blue-500 bg-sky-100 text-center text-black shadow-inner shadow-gray-50  ring-2 group-hover:duration-500 dark:bg-slate-900 dark:text-white dark:ring-0'
+			className='group relative flex h-[400px] w-full max-w-[300px] cursor-pointer flex-col items-center justify-between overflow-hidden rounded-2xl border border-blue-500 bg-sky-100 text-center text-black shadow-inner shadow-gray-50  ring-2 group-hover:duration-500 dark:bg-slate-900 dark:text-white dark:ring-0'
 			style={{ '--clr': color } as React.CSSProperties}
 		>
 			<div className='absolute left-[var(--x)] top-[var(--y)] size-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(var(--clr),rgba(255,255,255,0.1),transparent)] opacity-50 transition-opacity duration-500 hover:opacity-100'></div>
-			<div className='relative z-10'>
+			<div className=' z-10'>
 				<Image
 					src={image}
 					alt={title}
 					height={180}
-					width={230}
-					className='aspect-5/7 rounded-md  md:p-4 lg:p-5'
+					width={252}
+					className='aspect-5/7 rounded-md  md:p-3 md:pb-2 lg:p-4 lg:pb-2'
 				/>
 				<div className='ml-2 flex items-center justify-start gap-2 md:ml-3 lg:ml-4'>
 					<MdOutlineDateRange className='size-4 text-yellow-500 md:size-5' />
