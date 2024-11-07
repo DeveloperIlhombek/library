@@ -8,7 +8,10 @@ import Link from 'next/link'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { GoSearch } from 'react-icons/go'
+import { cn } from '@/lib/utils'
+import { useTheme } from 'next-themes'
 function Page() {
+	const { resolvedTheme } = useTheme()
 	return (
 		<div className='mt-24 '>
 			<BreadcrumbBook />
@@ -22,7 +25,11 @@ function Page() {
 						<Link href={`/books/${book.id}`} key={book.id}>
 							<Card
 								image={book.img_url}
-								color='#2d90f3'
+								color={cn(
+									resolvedTheme === 'dark'
+										? 'hsl(187, 92%, 69%)'
+										: 'hsl(50, 100%, 50%)'
+								)}
 								data={book.date}
 								description={book.decription}
 								title={book.title}

@@ -8,6 +8,7 @@ const {
 } = require('tailwindcss/lib/util/flattenColorPalette')
 const config: Config = {
 	darkMode: ['class'],
+	safelist: ['toaster', 'toast'],
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -31,6 +32,8 @@ const config: Config = {
 			aspectRatio: {
 				'4/3': '4 / 3',
 				'4/6': '4/6',
+				'5/7': '5/7',
+				'9/12': '9/12',
 			},
 			colors: {
 				background: 'hsl(var(--background))',

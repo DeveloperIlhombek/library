@@ -3,6 +3,7 @@ import './globals.css'
 import { ChildProps } from '@/types'
 import { Roboto, Space_Grotesk as SpaceGrotesk } from 'next/font/google'
 import { ThemeProvider } from '@/components/provider/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
 const roboto = Roboto({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['100', '300', '400', '500', '700', '900'],
@@ -32,6 +33,7 @@ function RootLayout({ children }: ChildProps) {
 					enableSystem
 					disableTransitionOnChange
 				>
+					<Toaster position='top-center' />
 					{children}
 				</ThemeProvider>
 			</body>

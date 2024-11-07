@@ -74,19 +74,19 @@ function Books() {
 					</div>
 					<div className='col-span-3 grid grid-cols-4 gap-3' ref={newsRef}>
 						{books.map(book => (
-							<Card
-								key={book.title}
-								image={book.img_url}
-								color='#2d90f3'
-								data={book.date}
-								description={book.decription}
-								title={book.title}
-							/>
+							<Link key={book.title} href={'books/1212'}>
+								<Card
+									image={book.img_url}
+									color='hsl(189, 94%, 43%)'
+									data={book.date}
+									description={book.decription}
+									title={book.title}
+								/>
+							</Link>
 						))}
 					</div>
 				</div>
 
-				{/* Link wrapped around Button to avoid potential rendering issues */}
 				<Link href='/books' passHref>
 					<Button
 						className='mx-auto my-10 flex shadow-[0px_0px_12px_#0959a9]'
