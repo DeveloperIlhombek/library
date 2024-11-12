@@ -39,7 +39,7 @@ function News() {
 		}
 	}, [])
 	return (
-		<div className='my-4 overflow-hidden'>
+		<div className='my-4 overflow-hidden' id='news'>
 			<div className='flex items-center justify-center gap-3'>
 				<IoNewspaperOutline
 					className={cn(

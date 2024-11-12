@@ -17,6 +17,7 @@ function Page() {
 				<Categories />
 				<Separator />
 				<Books />
+				<Separator />
 				<Posts />
 			</div>
 		</>

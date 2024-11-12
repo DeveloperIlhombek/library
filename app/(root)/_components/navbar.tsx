@@ -1,11 +1,16 @@
 'use client'
-import { sections } from '@/constanta'
+import { boshsahifa, sections } from '@/constanta'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import ModeToggle from '@/components/shared/mode-toggle'
 import Image from 'next/image'
 import { MdManageSearch } from 'react-icons/md'
-import { Menu, MenuItem, ProductforSections } from '@/components/ui/navbar-menu'
+import {
+	HoveredLink,
+	Menu,
+	MenuItem,
+	ProductforSections,
+} from '@/components/ui/navbar-menu'
 import { useState } from 'react'
 import { ProductItemCenter } from '@/components/ui/product-item-center'
 import { ProductItemEbook } from '@/components/ui/productitem-ebook'
@@ -34,13 +39,13 @@ function Navbar() {
 						</Link>
 					</div>
 					<Menu setActive={setActive}>
-						<Link href={'/'}>
-							<MenuItem
-								setActive={setActive}
-								active={active}
-								item='Bosh sahifa'
-							/>
-						</Link>
+						<MenuItem setActive={setActive} active={active} item='Bosh sahifa'>
+							{boshsahifa.map(item => (
+								<HoveredLink key={item.id} href={item.url}>
+									{item.name}
+								</HoveredLink>
+							))}
+						</MenuItem>
 						<MenuItem setActive={setActive} active={active} item='Markaz'>
 							<ProductItemCenter />
 						</MenuItem>

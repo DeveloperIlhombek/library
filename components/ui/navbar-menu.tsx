@@ -142,7 +142,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
 	return (
 		<Link
 			{...rest}
-			className='text-neutral-700 hover:text-black dark:text-neutral-200 '
+			className='flex flex-row items-center justify-start gap-2 font-serif text-lg font-bold capitalize text-blue-500 hover:text-black dark:text-neutral-200'
 		>
 			{children}
 		</Link>

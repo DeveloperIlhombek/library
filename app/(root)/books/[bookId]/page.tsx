@@ -26,15 +26,15 @@ function Page() {
 								className='w-48 font-bold tracking-wide'
 								onClick={() =>
 									toast(
-										<>
-											<PiWarningOctagonBold className='text-2xl' /> Yuklab olish
-											uchun ro&apos;yxatdan o&apos;ting
-										</>,
+										<div className=' flex items-center justify-center gap-4 text-white'>
+											<PiWarningOctagonBold className='text-2xl ' />
+											<p>Yuklab olish uchun ro&apos;yxatdan o&apos;ting</p>
+										</div>,
 										{
 											style: {
-												backgroundColor: 'rgb(256, 0, 1)',
+												backgroundColor: 'rgb(220, 38, 38)',
 												fontSize: '1rem',
-												fontWeight: 'bolder',
+												fontWeight: 'initial',
 											},
 										}
 									)

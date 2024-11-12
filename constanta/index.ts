@@ -189,3 +189,38 @@ export const categories = [
 	{ title: 'Maqolalar', image: '/category/bookcategory.svg' },
 	{ title: "Qo'lyozmalar", image: '/category/bookcategory.svg' },
 ]
+
+export const postItems = [
+	{
+		imagesrc: '/images/image2.avif',
+		title: 'Card Title',
+		description: 'Description for card in post section',
+	},
+	{
+		imagesrc: '/images/image2.avif',
+		title: 'Card Title',
+		description: 'Description for card in post section',
+	},
+	{
+		imagesrc: '/images/image2.avif',
+		title: 'Card Title',
+		description: 'Description for card in post section',
+	},
+	{
+		imagesrc: '/images/image2.avif',
+		title: 'Card Title',
+		description: 'Description for card in post section',
+	},
+	{
+		imagesrc: '/images/image2.avif',
+		title: 'Card Title',
+		description: 'Description for card in post section',
+	},
+]
+
+export const boshsahifa = [
+	{ url: '/#news', id: 4, name: 'news' },
+	{ url: '/#categories', id: 3, name: 'categories' },
+	{ url: '/#books', id: 2, name: 'books' },
+	{ url: '/#posts', id: 1, name: 'posts' },
+]

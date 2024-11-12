@@ -10,7 +10,7 @@ interface InfiniteMovingCardsProps {
 	items: {
 		previewImage: string
 		title: string
-		date: string
+		date?: string
 		description?: string
 	}[]
 	direction?: 'left' | 'right'
