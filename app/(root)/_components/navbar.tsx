@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import ModeToggle from '@/components/shared/mode-toggle'
 import Image from 'next/image'
-import { MdManageSearch } from 'react-icons/md'
 import {
 	HoveredLink,
 	Menu,
@@ -14,16 +13,6 @@ import {
 import { useState } from 'react'
 import { ProductItemCenter } from '@/components/ui/product-item-center'
 import { ProductItemEbook } from '@/components/ui/productitem-ebook'
-
-// Sheet componentini import qilish
-import {
-	Sheet,
-	SheetContent,
-	SheetDescription,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from '@/components/ui/sheet'
 import SearchSheet from '@/components/shared/search-sheet'
 
 function Navbar() {
