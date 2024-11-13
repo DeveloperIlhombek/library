@@ -15,6 +15,17 @@ import { useState } from 'react'
 import { ProductItemCenter } from '@/components/ui/product-item-center'
 import { ProductItemEbook } from '@/components/ui/productitem-ebook'
 
+// Sheet componentini import qilish
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from '@/components/ui/sheet'
+import SearchSheet from '@/components/shared/search-sheet'
+
 function Navbar() {
 	const [active, setActive] = useState<string | null>(null)
 
@@ -70,13 +81,7 @@ function Navbar() {
 						</MenuItem>
 					</Menu>
 					<div className='flex items-center gap-4'>
-						<Button
-							className='border-spacing-2 rounded-md border p-1 text-3xl shadow-[0px_0px_12px_#0959a9]'
-							variant={'ghost'}
-							aria-label='search'
-						>
-							<MdManageSearch />
-						</Button>
+						<SearchSheet />
 						<ModeToggle />
 						<Button
 							className='font-serif shadow-[0px_0px_12px_#0959a9]'

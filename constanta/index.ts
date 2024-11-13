@@ -224,3 +224,41 @@ export const boshsahifa = [
 	{ url: '/#books', id: 2, name: 'books' },
 	{ url: '/#posts', id: 1, name: 'posts' },
 ]
+export const searchLink = [
+	{ url: '/#news', id: 4, name: 'Yangiliklar' },
+	{ url: '/#categories', id: 3, name: 'Kategoriya' },
+	{ url: '/#books', id: 2, name: 'Kitoblar' },
+	{ url: '/#posts', id: 1, name: 'Postlar' },
+]
+export const searchCenterLink = [
+	{ url: '/center-about', name: 'Markaz haqida', id: 1 },
+	{ url: '/center-history', name: 'Markazning tarixi', id: 2 },
+	{ url: '/arm-terms', name: 'ARMdan foydalanish qoidalari', id: 3 },
+]
+export const searchSectionLink = [
+	{
+		url: '/publishing_deportment',
+		name: 'Ilmiy–uslubiy va axborot-ma’lumot (davriy nashrlar) bo‘limi',
+		id: 1,
+	},
+	{
+		url: '/gathering-resrces',
+		name: 'Axborot–kutubxona resurslarini butlash, kataloglashtirish va tizimlashtirish bo‘limi',
+		id: 2,
+	},
+	{
+		url: '/library-resources',
+		name: "Ilmiy kutubxona reesurslari bilan xizmat ko'rsatish bo'limi",
+		id: 3,
+	},
+	{
+		url: '/electronic-information',
+		name: 'Elektron axborot resurslari bo‘limi',
+		id: 4,
+	},
+	{
+		url: '/foreign-library',
+		name: 'Xorijiy axborot-kutubxona resurslari bilan ishlash bo‘limi',
+		id: 5,
+	},
+]
