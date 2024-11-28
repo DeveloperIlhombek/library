@@ -15,7 +15,6 @@ function Page() {
 				<News />
 				<Separator />
 				<Categories />
-				<Separator />
 				<Books />
 				<Separator />
 				<Posts />

@@ -38,7 +38,7 @@ function Categories() {
 	}, [])
 	return (
 		<>
-			<div className='my-4 overflow-hidden' id='categories'>
+			<div className='my-4 overflow-hidden ' id='categories'>
 				<div className='flex items-center justify-center gap-3'>
 					<TbCategoryFilled
 						className={cn(

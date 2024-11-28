@@ -31,44 +31,50 @@ function Navbar() {
 								height={60}
 								priority
 							/>
-							<h1 className='ml-2 font-space-grotesk font-bold'>
+							<h1 className='ml-2 font-space-grotesk font-bold max-md:hidden'>
 								International <span className='text-blue-500'>University</span>{' '}
 								of <br />
 								Tourism and Cultural Heritage
 							</h1>
 						</Link>
 					</div>
-					<Menu setActive={setActive}>
-						<MenuItem setActive={setActive} active={active} item='Bosh sahifa'>
-							{boshsahifa.map(item => (
-								<HoveredLink key={item.id} href={item.url}>
-									{item.name}
-								</HoveredLink>
-							))}
-						</MenuItem>
-						<MenuItem setActive={setActive} active={active} item='Markaz'>
-							<ProductItemCenter />
-						</MenuItem>
-						<MenuItem setActive={setActive} active={active} item="Bo'limlar">
-							<div className='grid grid-cols-5 gap-3'>
-								{sections.map(item => (
-									<ProductforSections
-										key={item.title}
-										title={item.title}
-										href={item.href}
-										src={item.src}
-									/>
+					<div className='max-md:hidden'>
+						<Menu setActive={setActive}>
+							<MenuItem
+								setActive={setActive}
+								active={active}
+								item='Bosh sahifa'
+							>
+								{boshsahifa.map(item => (
+									<HoveredLink key={item.id} href={item.url}>
+										{item.name}
+									</HoveredLink>
 								))}
-							</div>
-						</MenuItem>
-						<MenuItem
-							setActive={setActive}
-							active={active}
-							item='Elektron kitoblar'
-						>
-							<ProductItemEbook />
-						</MenuItem>
-					</Menu>
+							</MenuItem>
+							<MenuItem setActive={setActive} active={active} item='Markaz'>
+								<ProductItemCenter />
+							</MenuItem>
+							<MenuItem setActive={setActive} active={active} item="Bo'limlar">
+								<div className='grid grid-cols-5 gap-3'>
+									{sections.map(item => (
+										<ProductforSections
+											key={item.title}
+											title={item.title}
+											href={item.href}
+											src={item.src}
+										/>
+									))}
+								</div>
+							</MenuItem>
+							<MenuItem
+								setActive={setActive}
+								active={active}
+								item='Elektron kitoblar'
+							>
+								<ProductItemEbook />
+							</MenuItem>
+						</Menu>
+					</div>
 					<div className='flex items-center gap-4'>
 						<SearchSheet />
 						<ModeToggle />

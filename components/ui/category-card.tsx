@@ -9,9 +9,9 @@ interface CategoryProps {
 function CategoryCard({ image, title }: CategoryProps) {
 	return (
 		<>
-			<div className='group relative flex h-80 w-60 cursor-pointer flex-col items-center justify-around overflow-hidden rounded-2xl  bg-sky-100 text-gray-50 shadow-inner  shadow-gray-50 ring-2 group-hover:duration-500 dark:bg-slate-900 dark:ring-0'>
+			<div className='group relative mb-8 flex h-80 w-60 cursor-pointer flex-col items-center justify-around overflow-hidden  rounded-2xl bg-sky-100 text-gray-50  shadow-inner shadow-gray-50 ring-2 group-hover:duration-500 dark:bg-slate-900 dark:ring-0'>
 				<div className='absolute left-2 top-2 z-10'>
-					<span className=' absolute left-[-25px] top-[15px] flex h-8 w-52 -rotate-27 items-center justify-center overflow-hidden  rounded-md bg-gradient-to-r from-blue-600 via-sky-300 to-blue-500 p-1 font-serif font-semibold uppercase tracking-tighter  text-black shadow-md dark:text-white'>
+					<span className=' absolute left-[-25px] top-[15px] flex h-8 w-52 -rotate-27 items-center justify-center overflow-hidden  rounded-md bg-gradient-to-r from-yellow-600 via-yellow-200 to-pink-500 p-1 font-serif font-semibold uppercase tracking-tighter  text-black shadow-md '>
 						{title}
 					</span>
 					<div className='ml-10 mt-16 flex  size-full items-center justify-center group-hover:scale-105'>
@@ -25,7 +25,7 @@ function CategoryCard({ image, title }: CategoryProps) {
 					</div>
 				</div>
 
-				<div className='z-10 flex flex-col text-6xl font-extrabold duration-500 before:absolute before:right-16 before:top-20 before:-z-10 before:size-20 before:rounded-full before:bg-sky-400 before:blur-xl before:duration-500 after:absolute after:bottom-32 after:right-16 after:-z-10 after:size-12 after:rounded-full after:bg-blue-400 after:blur-xl after:duration-500 group-hover:before:-translate-y-11 group-hover:before:translate-x-11 group-hover:after:translate-x-11 group-hover:after:translate-y-16'></div>
+				<div className='z-10 flex flex-col text-6xl font-extrabold duration-500 before:absolute before:right-16 before:top-20 before:-z-10 before:size-20 before:rounded-full before:bg-indigo-300 before:blur-xl before:duration-500 after:absolute after:bottom-32 after:right-16 after:-z-10 after:size-12 after:rounded-full after:bg-blue-400 after:blur-xl after:duration-500 group-hover:before:-translate-y-11 group-hover:before:translate-x-11 group-hover:after:translate-x-11 group-hover:after:translate-y-16'></div>
 				<div className='absolute bottom-0 left-0 flex cursor-pointer items-center gap-0 rounded-tr-full bg-blue-400 p-2 shadow-md duration-300 group-hover:gap-2 dark:bg-blue-800'>
 					<svg
 						fill='none'

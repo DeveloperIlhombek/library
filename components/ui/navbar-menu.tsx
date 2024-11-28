@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { IBookItems } from '@/app/(root)/types'
+import { IBookItems } from '@/app/[locale]/(root)/types'
 
 const transition = {
 	type: 'spring',
