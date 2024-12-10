@@ -1,103 +1,165 @@
 'use client'
-import Card from '@/components/shared/card-effect'
-import { Button } from '@/components/ui/button'
-import { books } from '@/constanta'
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-import { GiBookshelf } from 'react-icons/gi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Library } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { cn } from '@/lib/utils'
+import { BookCard } from '@/components/shared/card-effect'
+import { books } from '@/constanta'
 
-function Books() {
+const categories = [
+	{ text: 'Yangi Kitoblar', size: 'text-5xl', color: 'text-blue-600' },
+	{ text: 'Bestseller', size: 'text-4xl', color: 'text-purple-500' },
+	{ text: 'Audio Kitoblar', size: 'text-3xl', color: 'text-green-500' },
+	{ text: 'E-books', size: 'text-2xl', color: 'text-red-500' },
+	{ text: 'Klassiklar', size: 'text-xl', color: 'text-yellow-600' },
+	{ text: "She'riyat", size: 'text-lg', color: 'text-pink-500' },
+	{ text: 'Romanlar', size: 'text-base', color: 'text-indigo-500' },
+	{ text: 'Ilmiy', size: 'text-sm', color: 'text-teal-500' },
+]
+
+export const BookSection: React.FC = () => {
 	const [isVisible, setIsVisible] = useState(false)
-	const newsRef = useRef<HTMLDivElement | null>(null)
+	const sectionRef = useRef<HTMLDivElement>(null)
+	const { theme } = useTheme()
 
 	useEffect(() => {
-		const currentRef = newsRef.current
 		const observer = new IntersectionObserver(
 			entries => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						setIsVisible(true)
-					} else {
-						setIsVisible(false)
 					}
 				})
 			},
-			{
-				threshold: 0.1,
-			}
+			{ threshold: 0.3 }
 		)
 
-		if (currentRef) {
-			observer.observe(currentRef)
+		if (sectionRef.current) {
+			observer.observe(sectionRef.current)
 		}
 
-		return () => {
-			if (currentRef) {
-				observer.unobserve(currentRef)
-			}
-		}
+		return () => observer.disconnect()
 	}, [])
 
 	return (
-		<>
-			<div className='my-4 overflow-hidden' id='books'>
-				<div className='flex items-center justify-center gap-3'>
-					<GiBookshelf
+		<div
+			ref={sectionRef}
+			className={cn(
+				'min-h-screen w-full py-16 transition-colors duration-300',
+				theme === 'dark'
+					? 'bg-gray-900'
+					: 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
+			)}
+		>
+			<div className='container mx-auto px-4'>
+				{/* Title Section */}
+				<motion.div
+					className='mb-16 flex items-center justify-center gap-4'
+					animate={isVisible ? 'visible' : 'hidden'}
+				>
+					<motion.div
+						variants={{
+							hidden: { opacity: 0, rotate: -180, scale: 0.5 },
+							visible: {
+								opacity: 1,
+								rotate: 0,
+								scale: 1,
+								transition: { duration: 0.8, type: 'spring' },
+							},
+						}}
+					>
+						<Library
+							className={cn(
+								'h-12 w-12',
+								theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
+							)}
+						/>
+					</motion.div>
+
+					<motion.h1
 						className={cn(
-							'h-20 text-5xl text-blue-500 transition-transform duration-500 ease-in-out',
-							isVisible ? '-translate-y-5' : '-translate-y-20'
+							'relative font-serif text-5xl font-bold',
+							theme === 'dark' ? 'text-white' : 'text-gray-900'
 						)}
-					/>
-					<h1
-						className={cn(
-							'h-20 bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-center font-serif text-5xl font-bold text-transparent transition-transform duration-1000 ease-in-out',
-							isVisible ? 'translate-y-0' : '-translate-y-20'
-						)}
+						variants={{
+							hidden: { opacity: 0, y: -20 },
+							visible: {
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.8, type: 'spring' },
+							},
+						}}
 					>
 						Kitoblar
-					</h1>
-				</div>
+						<motion.div
+							className='absolute -bottom-2 left-0 h-1 w-full bg-blue-500'
+							initial={{ scaleX: 0 }}
+							animate={isVisible ? { scaleX: 1 } : { scaleX: 0 }}
+							transition={{ delay: 0.5, duration: 0.8 }}
+						/>
+					</motion.h1>
+				</motion.div>
 
-				<div className='grid grid-cols-4 gap-4'>
-					<div className='col-span-1'>
-						<div>
-							<p>Elektron kitoblar biror ta&apos;rif</p>
-							<Image
-								src={'/images/camels.svg'}
-								alt='camels'
-								width={400}
-								height={400}
-							/>
+				{/* Main Content */}
+				<div className='flex flex-col lg:flex-row'>
+					{/* Categories Sidebar - Only visible on desktop */}
+					<div className='hidden lg:block lg:w-1/4 lg:pr-8'>
+						<div className='sticky top-24'>
+							<AnimatePresence>
+								{isVisible && (
+									<ul className='space-y-4'>
+										{categories.map((item, index) => (
+											<motion.li
+												key={index}
+												className={cn(
+													'cursor-pointer font-serif transition-all hover:scale-105',
+													item.size,
+													item.color
+												)}
+												initial={{ x: -50, opacity: 0 }}
+												animate={{ x: 0, opacity: 1 }}
+												transition={{ delay: index * 0.1 }}
+												whileHover={{ x: 10 }}
+											>
+												{item.text}
+											</motion.li>
+										))}
+									</ul>
+								)}
+							</AnimatePresence>
 						</div>
 					</div>
-					<div className='col-span-3 grid grid-cols-4 gap-3' ref={newsRef}>
-						{books.map(book => (
-							<Link key={book.title} href={'books/1212'}>
-								<Card
-									image={book.img_url}
-									color='hsl(189, 94%, 43%)'
-									data={book.date}
-									description={book.decription}
-									title={book.title}
-								/>
-							</Link>
-						))}
+
+					{/* Books Grid Container */}
+					<div className='w-full lg:w-3/4'>
+						<div
+							className={cn(
+								'grid gap-4 sm:gap-6 md:gap-8',
+								// 2 columns on mobile
+								'grid-cols-2',
+								// 3 columns on tablet
+								'md:grid-cols-3',
+								// 4 columns on desktop
+								'lg:grid-cols-4'
+							)}
+						>
+							{/* Example BookCards - Replace with your actual data */}
+							{books.map((book, index) => (
+								<div key={index} className='flex justify-center'>
+									<BookCard
+										key={book.id}
+										image={book.img_url}
+										title={book.title}
+										date={book.date}
+										description={book.decription} // Corrected key here
+									/>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
-
-				<Link href='/books' passHref>
-					<Button
-						className='mx-auto my-10 flex shadow-[0px_0px_12px_#0959a9]'
-						variant={'default'}
-					>
-						Ko&apos;proq ko&apos;rish
-					</Button>
-				</Link>
 			</div>
-		</>
+		</div>
 	)
 }
-
-export default Books

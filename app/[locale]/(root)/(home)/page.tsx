@@ -1,23 +1,22 @@
 import React from 'react'
-import News from './_components/news'
 import Categories from './_components/categories'
-import Books from './_components/books'
-import Posts from './_components/posts'
 import { Separator } from '@/components/ui/separator'
-import Hero from './_components/hero'
+import { Hero } from './_components/hero/hero'
+import { NewsSection } from './_components/news/news-section'
+import { BookSection } from './_components/books'
+import { PostSection } from './_components/posts/post-section'
 
 function Page() {
 	return (
 		<>
 			<Hero />
 			<div className='container'>
-				<Separator className='my-4' />
-				<News />
+				<NewsSection />
 				<Separator />
 				<Categories />
-				<Books />
+				<BookSection />
 				<Separator />
-				<Posts />
+				<PostSection />
 			</div>
 		</>
 	)

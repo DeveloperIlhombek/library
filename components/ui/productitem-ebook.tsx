@@ -1,59 +1,70 @@
+'use client'
+
 import Link from 'next/link'
 import { FaBookOpen } from 'react-icons/fa6'
 import { GiBookshelf, GiMaterialsScience, GiBookmarklet } from 'react-icons/gi'
 import { SlBookOpen } from 'react-icons/sl'
 import { GrDatabase } from 'react-icons/gr'
-import React from 'react'
+import { motion } from 'framer-motion'
 
-interface ProductLinkProps {
-	href: string
-	icon: React.ReactNode
-	label: string
-}
-
-const ProductLink: React.FC<ProductLinkProps> = ({ href, icon, label }) => (
-	<Link
-		href={href}
-		className='flex h-52 w-44  flex-col items-center justify-center gap-2 space-y-1 rounded-md border ring-2 hover:bg-blue-200 hover:dark:bg-slate-800'
-	>
-		<div className='size-36'>{icon}</div>
-		<p className='mb-1 text-center font-serif font-semibold'>{label}</p>
-	</Link>
-)
+const ebookItems = [
+	{
+		href: '/electron-library',
+		icon: FaBookOpen,
+		label: 'Adabiyotlar',
+	},
+	{
+		href: '/',
+		icon: GiBookshelf,
+		label: 'Maqolalar',
+	},
+	{
+		href: '/',
+		icon: GiMaterialsScience,
+		label: 'Dissertatsiyalar',
+	},
+	{
+		href: '/',
+		icon: SlBookOpen,
+		label: 'Monografiyalar',
+	},
+	{
+		href: '/',
+		icon: GiBookmarklet,
+		label: "Qo'lyozmalar",
+	},
+	{
+		href: '/',
+		icon: GrDatabase,
+		label: "Xalqaro Ilmiy ma'lumotlar manbai",
+	},
+]
 
 export const ProductItemEbook = () => {
 	return (
-		<div className='flex items-center justify-center gap-4'>
-			<ProductLink
-				href='/electron-library'
-				icon={<FaBookOpen className='mx-auto size-3/4 text-blue-400' />}
-				label='Adabiyotlar'
-			/>
-			<ProductLink
-				href='/'
-				icon={<GiBookshelf className='mx-auto size-3/4 text-blue-400' />}
-				label='Maqolalar'
-			/>
-			<ProductLink
-				href='/'
-				icon={<GiMaterialsScience className='mx-auto size-3/4 text-blue-400' />}
-				label='Dissertatsiyalar'
-			/>
-			<ProductLink
-				href='/'
-				icon={<SlBookOpen className='mx-auto size-3/4 text-blue-400' />}
-				label='Monografiyalar'
-			/>
-			<ProductLink
-				href='/'
-				icon={<GiBookmarklet className='mx-auto size-3/4 text-blue-400' />}
-				label="Qo'lyozmalar"
-			/>
-			<ProductLink
-				href='/'
-				icon={<GrDatabase className='mx-auto mt-2 size-3/4 text-blue-400' />}
-				label="Xalqaro Ilmiy ma'lumotlar manbai"
-			/>
+		<div className='grid max-h-[600px] w-full max-w-[1000px] grid-cols-2 gap-1 overflow-y-auto p-3 sm:grid-cols-2 lg:grid-cols-3'>
+			{ebookItems.map((item, index) => (
+				<motion.div
+					key={item.href}
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: index * 0.1 }}
+					whileHover={{ scale: 1.02 }}
+				>
+					<Link
+						href={item.href}
+						className='group relative flex h-full flex-col items-center justify-center gap-4 overflow-hidden rounded-xl border bg-white p-4 shadow-lg transition-all hover:border-blue-500 hover:shadow-blue-100 dark:bg-slate-900 dark:hover:shadow-blue-900/20 sm:gap-6 sm:p-6'
+					>
+						<div className='absolute inset-0 -z-10 bg-gradient-to-br from-blue-50 to-white opacity-0 transition-opacity group-hover:opacity-100 dark:from-blue-950 dark:to-slate-900'></div>
+						<div className='relative flex size-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-blue-50 transition-transform group-hover:scale-110 dark:from-blue-900 dark:to-blue-950 sm:size-24'>
+							<item.icon className='size-8 text-blue-500 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 sm:size-12' />
+						</div>
+						<p className='text-center text-sm font-medium text-slate-800 dark:text-slate-200 sm:text-lg'>
+							{item.label}
+						</p>
+					</Link>
+				</motion.div>
+			))}
 		</div>
 	)
 }

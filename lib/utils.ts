@@ -1,6 +1,12 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+	return twMerge(clsx(inputs))
+}
+
+export function getCurrentLng(lng: string) {
+	if (lng === 'en') return 'English'
+	if (lng === 'ru') return 'Русский'
+	if (lng === 'uz') return 'O‘zbek'
 }

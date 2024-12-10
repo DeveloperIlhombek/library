@@ -262,3 +262,8 @@ export const searchSectionLink = [
 		id: 5,
 	},
 ]
+export const lngs = [
+	{ route: 'uz', label: "O'zbek" },
+	{ route: 'en', label: 'English' },
+	{ route: 'ru', label: 'Русский' },
+]
