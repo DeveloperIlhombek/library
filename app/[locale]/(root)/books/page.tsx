@@ -1,5 +1,5 @@
 'use client'
-import Card from '@/components/shared/card-effect'
+
 import { books } from '@/constanta'
 import BreadcrumbBook from './_components/breadcrumb'
 import PaginationBook from './_components/pagination-book'
@@ -8,44 +8,51 @@ import Link from 'next/link'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { GoSearch } from 'react-icons/go'
-import { cn } from '@/lib/utils'
-import { useTheme } from 'next-themes'
+import { BookCard } from '@/components/shared/card-effect'
+
 function Page() {
-	const { resolvedTheme } = useTheme()
 	return (
 		<div className='mt-24 '>
+			{/* Breadcrumb */}
 			<BreadcrumbBook />
+
+			{/* Header */}
 			<div className='flex items-center justify-center gap-4'>
 				<GiBookshelf className='text-4xl' />
 				<h1 className='my-4 text-center text-4xl'>Barcha Kitoblar</h1>
 			</div>
-			<div className='container grid h-screen grid-cols-7 gap-2'>
-				<div className='container col-span-5 mx-auto grid grid-cols-4 gap-3'>
+
+			{/* Main Content */}
+			<div className='container grid grid-cols-7 gap-4'>
+				{/* Books Grid */}
+				<div className='col-span-5 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4'>
 					{books.map(book => (
 						<Link href={`/books/${book.id}`} key={book.id}>
-							<Card
+							<BookCard
 								image={book.img_url}
-								color={cn(
-									resolvedTheme === 'dark'
-										? 'hsl(187, 92%, 69%)'
-										: 'hsl(50, 100%, 50%)'
-								)}
-								data={book.date}
-								description={book.decription}
 								title={book.title}
+								date={book.date}
+								description={book.decription}
 							/>
 						</Link>
 					))}
 				</div>
+
+				{/* Search Section */}
 				<div className='col-span-2'>
-					<div className='flex items-center justify-center '>
-						<Input className='rounded-r-none ring-1' />
+					<div className='flex items-center gap-2'>
+						<Input
+							placeholder='Kitob nomini qidiring...'
+							className='rounded-r-none ring-1'
+						/>
 						<Button type='button' className='rounded-l-none'>
 							<GoSearch />
 						</Button>
 					</div>
 				</div>
 			</div>
+
+			{/* Pagination */}
 			<PaginationBook />
 		</div>
 	)
